@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Clonar repositorio localmente.
+* Ejecutar migraciones con el comando <strong> rails db:migrate </strong>
+* Generar un par de productos en la direccion Nuevo Producto (products/new)
+* Generar una factura con total 0.
+* Agregar conceptos a la factura.
+* Pagar factura en opcion "Pagar" en listado de las facturas. 
