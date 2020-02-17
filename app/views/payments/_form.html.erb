@@ -1,0 +1,36 @@
+<%= form_with(model: payment, local: true) do |form| %>
+  <% if payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+      <ul>
+        <% payment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :invoice_id, :value=>@invoice.id %>
+
+  <div class="field">
+    <%= form.label :"Tipo" %>
+    <select name="payment[ptype]" id="payment_ptype">
+      <option value="SPEI" selected="selected">SPEI</option>
+      <option value="VENTANILLA" >VENTANILLA</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= form.label :total %>
+    <%= form.text_field :total, :value=>@total_pagar, disabled:true %>
+    <%= form.hidden_field :total, :value=>@total_pagar %>
+  </div>
+
+  <%= form.hidden_field :created %>
+  <%= form.hidden_field :applied %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total: 9.99
+  created: 2020-02-14 01:39:41
+  exp_date: 2020-02-14 01:39:41
+
+two:
+  total: 9.99
+  created: 2020-02-14 01:39:41
+  exp_date: 2020-02-14 01:39:41

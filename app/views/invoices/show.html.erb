@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @invoice.total %>
+</p>
+
+<p>
+  <strong>Created:</strong>
+  <%= @invoice.created %>
+</p>
+
+<p>
+  <strong>Exp date:</strong>
+  <%= @invoice.exp_date %>
+</p>
+
+<hr/>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Invoice</th>
+      <th>Quantity</th>
+      <th>Price</th> 
+    </tr>
+  </thead>
+  <tbody>
+  <% @invoice.items.each do |item| %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= item.invoice_id %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Agregar Conceptos</h3>
+<%= form_for([@invoice, @invoice.items.build]) do |f| %>
+  <%= f.hidden_field :invoice_id, :value=>@invoice.id %>
+  <div class="field">
+    <%= f.label :"Producto" %>
+    <%= f.select(:product_id ,Product.pluck(:name, :id)) %>
+  </div>
+  <div class="field">
+    <%= f.label :"Cantidad" %>
+    <%= f.number_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"Precio" %>
+    <%= f.text_field :price %>
+  </div>
+  <p>
+    <%= f.submit %> 
+  </p>
+<% end %>
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

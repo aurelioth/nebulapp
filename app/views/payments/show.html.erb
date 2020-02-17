@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @payment.invoice_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @payment.ptype %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @payment.total %>
+</p>
+
+<p>
+  <strong>Created:</strong>
+  <%= @payment.created %>
+</p>
+
+<p>
+  <strong>Applied:</strong>
+  <%= @payment.applied %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>
